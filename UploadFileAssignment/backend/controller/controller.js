@@ -2,6 +2,7 @@ const asyncHandler = require('express-async-handler')
 const User = require('../model/userModel')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const { transferData } = require('../uploadConfig/multerConfig')
 
 exports.register = asyncHandler(async (req, res) => {
     const { name, email, password } = req.body
@@ -63,4 +64,10 @@ const generateToken = (id) => {
 
 exports.getMe = (req, res) => {
     res.send(req.user)
+}
+
+exports.fileUpload = (req, res) => {
+    // console.log(req.file)
+    transferData()
+    res.send(req.file)
 }

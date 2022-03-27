@@ -17,4 +17,5 @@ app.use(cors({origin:"http://localhost:3000"}))
 app.use('/api/users', router)
 app.use(errorHandler)
 
+
 app.listen(PORT, console.log('Server started at PORT', PORT))
